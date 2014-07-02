@@ -27,7 +27,12 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+				sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+				menu: '#menu',
+                navigation: true,
+                navigationPosition: 'right',
+                slidesNavigation: true,
+                slidesNavPosition: 'bottom',
 			});
 		});
 	</script>
@@ -37,16 +42,21 @@
 
 
 <div id="fullpage">
-	<div class="section active" id="section0"><h1>NARS: Non-Axiomatic Reasoning System</h1></div>
-	<div class="section" id="section1">
-	    <div class="slide active"><h1>Simple Demo</h1></div>
-	    <div class="slide"><h1>Only text</h1></div>
-	    <div class="slide"><h1>And text</h1></div>
-	    <div class="slide"><h1>And more text</h1></div>
+	<div class="section active" id="main" data-anchor="main"><h1>NARS: Non-Axiomatic Reasoning System</h1></div>
+	<div class="section" id="about" data-anchor="about"><h1>What is NARS?</h1></div>
+	<div class="section" id="logic" data-anchor="logic">
+	    <div class="slide active" ><h1>Logic</h1></div>
+	    <div class="slide"><h1>NAL 0</h1></div>
+	    <div class="slide"><h1>NAL 1</h1></div>
+	    <div class="slide"><h1>NAL 2</h1></div>
 	</div>
-	<div class="section" id="section2"><h1>No wraps, no extra markup</h1></div>
-	<div class="section" id="section3"><h1>Just the simplest demo ever</h1></div>
+	<div class="section" id="dev" data-anchor="dev"><h1>Development</h1></div>
 </div>
-
+<ul id="menu">
+    <li data-menuanchor="main" class="active"><a href="#main">NARS</a></li>
+    <li data-menuanchor="about"><a href="#about">About</a></li>
+    <li data-menuanchor="logic"><a href="#logic">Logic</a></li>
+    <li data-menuanchor="dev"><a href="#dev">Development</a></li>
+</ul>
 </body>
 </html>
