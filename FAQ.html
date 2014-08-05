@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <link href="style.css" media="all" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+
+<h1 id="theory-software-faq">Theory &amp; Software FAQ</h1>
+<h1 id="theory-faq-">Theory FAQ =</h1>
+<ul>
+<li>How relevant is Pei Wang’s thesis to today’s theory? As of 2013, are there some revisions of ideas, or ”just” deepening of analysis?</li>
+</ul>
+<p>Most of the basic ideas in Pei Wang’s thesis (1995) and first book (2006) remain in today&#39;s NARS, though some details (grammar rules, inference rules, implementation, etc.) have be revised. The most comprehensive and up-to-date description of the Non-Axiomatic Logic (i.e., the grammar rules and inference rules implemented in NARS) is Pei Wang&#39;s second book (2003).</p>
+<ul>
+<li>What is the difference between NARS reasoning and OpenCog’s PLN (Probabilistic Logic Network)?</li>
+</ul>
+<p>This issue is addressed briefly in a footnote of Wang (2013): &quot;This <code>[theory conflicts with the assumption of insufficient knowledge and resources</code>](<code>probability)</code> is the root of the differences between NAL and Probabilistic Logic Network (PLN) <code>[et al. (2008)</code>](<code>Goertzel)</code>, which is partially based on NAL and partially based on probability theory. Such a mixture is a meta-level inconsistency not allowed in NAL --- to me, it is invalid to treat a measurement as probability in some places of the system, while in other places to process the same measurement using methods that violate the axioms of probability theory.&quot;</p>
+<ul>
+<li>What are the tasks and kind of applications most suited for NARS ?</li>
+</ul>
+<p>-- The system has insufficient knowledge and resources to use traditional models (mathematical logic, probability theory, problem-specific algorithm, etc.).</p>
+<p>-- At the current stage, all the tasks and solutions must be expressible in Narsese (though in the future NARS can be integrated with various I/O channels).</p>
+<p>-- There is a tolerance to the mistakes the system makes at the beginning.</p>
+<ul>
+<li>Is the NARS inference parallelisable?</li>
+</ul>
+<p>Conceptually, NARS can be implemented as a paralleled or distributed system, since its concepts serves as storage and processing units that are independent of each other. However, the current software is not designed to support parallel inference.</p>
+<ul>
+<li>Is some ”convergence” reached when continuing steps after last input?</li>
+</ul>
+<h1 id="software-faq">Software FAQ</h1>
+<ul>
+<li><p>What support is available for using NARS ?
+The mailing list : <a href="https://groups.google.com/forum/?fromgroups=#!forum/open-nars">https://groups.google.com/forum/?fromgroups=#!forum/open-nars</a>
+and the IRC chat channel #nars at irc.freenode.net.</p>
+</li>
+<li><p>What importers are there from other data or knowledge formats?
+None at the moment, but work is under way in EulerGUI project for a translation from RDF/N3 (Semantic Web standards) into Narsese.</p>
+</li>
+<li>Which API is available for embedding NARS in an application?
+There is the ReasonerBatch class, which has no dependencies to AWT or Swing classes.</li>
+<li>Are there code examples of embedding NARS in an application?
+Not really, but you can have a look at tests in <a href="https://open-nars.googlecode.com/svn/trunk/nars_core/src/main/java">https://open-nars.googlecode.com/svn/trunk/nars_core/src/main/java</a> and <a href="https://open-nars.googlecode.com/svn/trunk/nars_core/src/main/scala">https://open-nars.googlecode.com/svn/trunk/nars_core/src/main/scala</a></li>
+<li>Are there some examples for supervised machine learning with NARS ?</li>
+<li>How to call Java code from NARS?</li>
+<li>Are there concrete examples of reasoning with NARS, larger and closer to useful things than wiki examples?
+There are descriptions of demos for NARS (dbPedia, health, video games, pattern matching, etc) here: <a href="http://www.cis.temple.edu/~pwang/demos.html">http://www.cis.temple.edu/~pwang/demos.html</a></li>
+<li>Is it possible to use fancy atomic term syntax like URI’s?
+Not at the moment, but work is under way to accept URI’s or abridged URI’s in N3/Turtle style.</li>
+<li>Is it possible, or even necessary to declare terms and relations like in done in RDF Schema, OWL, UML, or are terms and relations implicitly declared like in Prolog?
+NO</li>
+<li>Is there some special syntax for literals ( numbers, strings, ...) ?
+NO</li>
+<li>Does NARS index strings and identifiers, like Prolog implementations do ?
+Yes, in the sense that in NARS all sentences involving a term are referred in a concept named by the term.</li>
+<li>Are there some stress tests for NARS?
+NO</li>
+</ul>
+
+
+
+
+</html>
+

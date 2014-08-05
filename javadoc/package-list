@@ -1,0 +1,12 @@
+nars.core
+nars.entity
+nars.inference
+nars.io
+nars.language
+nars.operator
+nars.storage
+nars.util
+nars.util.experimental
+nars.util.kif
+nars.util.rdfowl
+nars.util.xml

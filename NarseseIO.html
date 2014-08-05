@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <link href="style.css" media="all" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+
+<h2 id="narsese-grammar-i-o-format">Narsese Grammar - I/O Format</h2>
+<p>Each line in the system&#39;s input and output is either a task (as defined in the following grammar, in BNF notation), or an integer, indicating the number of inference steps between tasks.</p>
+<p>In a task, all the space characters are optional, and will be ignored by the system in processing.</p>
+<p>NOTE: Not all the constructs are implemented in the current version (1.5.5). The Narsese items for temporal inference (on time and tense) and procedural inference (on operation and goal) are removed from the code, and will be re-implemented. The explanation of these items are put in &quot;()&quot; to separate them from the implemented ones.</p>
+<pre><code class="lang-java">                       GRAMMAR RULE                          BRIEF EXPLANATION
+               &lt;task&gt; ::= [&lt;budget&gt;] &lt;sentence&gt;              // task to be processed
+           &lt;sentence&gt; ::= [&lt;tense&gt;] &lt;statement&gt;&quot;.&quot; [&lt;truth&gt;] // judgment to be remembered
+                        | [&lt;tense&gt;] &lt;statement&gt;&quot;?&quot;           // question to be answered
+                        | &lt;statement&gt;&quot;!&quot; [&lt;truth&gt;]           // (goal to be realized)
+          &lt;statement&gt; ::= &quot;&lt;&quot;&lt;term&gt; &lt;copula&gt; &lt;term&gt;&quot;&gt;&quot;       // two terms related to each other
+                        | &lt;term&gt;                             // a term can name a statement
+                        | &quot;(^&quot;&lt;word&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;         // (an operation to be executed)                         
+             &lt;copula&gt; ::= &quot;--&gt;&quot;                              // inheritance
+                        | &quot;&lt;-&gt;&quot;                              // similarity
+                        | &quot;{--&quot;                              // instance
+                        | &quot;--]&quot;                              // property
+                        | &quot;{-]&quot;                              // instance-property
+                        | &quot;==&gt;&quot;                              // implication
+                        | &quot;=/&gt;&quot;                              // (predictive implication)
+                        | &quot;=|&gt;&quot;                              // (concurrent implication)
+                        | &quot;=\&gt;&quot;                              // (retrospective implication)
+                        | &quot;&lt;=&gt;&quot;                              // equivalence
+                        | &quot;&lt;/&gt;&quot;                              // (predictive equivalence)
+                        | &quot;&lt;|&gt;&quot;                              // (concurrent equivalence)
+               &lt;term&gt; ::= &lt;word&gt;                             // an atomic constant term
+                        | &lt;variable&gt;                         // an atomic variable term
+                        | &lt;compound-term&gt;                    // a term with internal structure
+                        | &lt;statement&gt;                        // a statement can serve as a term
+      &lt;compound-term&gt; ::= &quot;{&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;}&quot;         // extensional set
+                        | &quot;[&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;]&quot;         // intensional set
+                        | &quot;(&amp;,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;       // extensional intersection
+                        | &quot;(|,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;       // intensional intersection
+                        | &quot;(-,&quot; &lt;term&gt; &quot;,&quot; &lt;term&gt; &quot;)&quot;        // extensional difference
+                        | &quot;(~,&quot; &lt;term&gt; &quot;,&quot; &lt;term&gt; &quot;)&quot;        // intensional difference
+                        | &quot;(*,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;       // product
+                        | &quot;(/,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;       // extensional image
+                        | &quot;(\,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;       // intensional image
+                        | &quot;(--,&quot; &lt;term&gt; &quot;)&quot;                  // negation
+                        | &quot;(||,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;      // disjunction
+                        | &quot;(&amp;&amp;,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;      // conjunction
+                        | &quot;(&amp;/,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;      // (sequential events)
+                        | &quot;(&amp;|,&quot; &lt;term&gt; {&quot;,&quot;&lt;term&gt;} &quot;)&quot;      // (parallel events)
+           &lt;variable&gt; ::= &quot;$&quot;&lt;word&gt;                          // independent variable
+                        | &quot;#&quot;[&lt;word&gt;]                        // dependent variable
+                        | &quot;?&quot;[&lt;word&gt;]                        // query variable in question
+              &lt;tense&gt; ::= &quot;:/:&quot;                              // (future event)
+                        | &quot;:|:&quot;                              // (present event)
+                        | &quot;:\:&quot;                              // (past event)
+              &lt;truth&gt; ::= &quot;%&quot;&lt;frequency&gt;[&quot;;&quot;&lt;confidence&gt;]&quot;%&quot; // two numbers in [0,1]x(0,1)
+             &lt;budget&gt; ::= &quot;$&quot;&lt;priority&gt;[&quot;;&quot;&lt;durability&gt;]&quot;$&quot;  // two numbers in [0,1]x(0,1)
+               &lt;word&gt; : Unicode string in an arbitrary alphabet
+</code></pre>
+<p>From: <a href="https://code.google.com/p/open-nars/wiki/InputOutputFormat">https://code.google.com/p/open-nars/wiki/InputOutputFormat</a></p>
+
+
+
+
+</html>
+
