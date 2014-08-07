@@ -4,6 +4,7 @@ nars.inference
 nars.io
 nars.language
 nars.operator
+nars.operator.mental
 nars.storage
 nars.util
 nars.util.experimental
